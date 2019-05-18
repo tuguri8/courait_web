@@ -1,0 +1,89 @@
+@font-face { font-family: 'NanumBarunGothic';
+src: url('/fonts/NanumBarunGothic.eot');
+src: url('/fonts/NanumBarunGothic.eot') format('embedded-opentype'),
+url('/fonts/NanumBarunGothic.woff') format('woff');}
+
+
+body {
+  font-family: 'NanumBarunGothic', 'serif' !important;
+}
+
+form {
+  width: 50vh;
+}
+
+.wrap {
+  /* height: 100vh; */
+  background: #81c6c0 !important;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30%;
+  padding-right: 30%;
+  /* padding-top: 15%; */
+}
+
+.main-img {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.header-font-l {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+}
+
+.header-font-r {
+  font-size: 4rem;
+  padding-left: 30%;
+  align-items: flex-end;
+  font-weight: bold;
+  color: white;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  padding-top: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.search > a {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+
+@media screen and (max-width: 959px) and (min-width: 600px) {
+    body{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 599px) and (min-width: 320px) {
+    body{
+        font-size: 1rem;
+    }
+
+}

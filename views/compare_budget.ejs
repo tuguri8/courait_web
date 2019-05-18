@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>쿠레이트 - CourAIt</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel='stylesheet' href='/stylesheets/compare_budget.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://spin.js.org/spin.css">
+    <link href='/stylesheets/fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='/stylesheets/fullcalendar/daygrid/main.css' rel='stylesheet' />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <nav class="navbar">
+          <a id="logo" class="navbar-brand" href="/">
+            <span style="color: white;">CourAIt</span>
+            <!-- <img src="/images/logo.png" width="50" height="30" alt=""> -->
+          </a>
+          <div class="nav-item">
+            <div class="navbar-item">
+              <span class="nav-submenu">지출조회</span>
+              <div class="dropdown-content">
+                <span id="nav-month">월별 조회</span>
+                <span id="nav-day">일별 조회</span>
+                <span id="nav-input">수동 지출 입력</span>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <span id="get-budget-btn" class="nav-submenu">예산관리</span>
+              <div class="dropdown-content">
+                <a href="/change_budget">예산 설정</a>
+                <a href="/compare_budget">예산 대비 지출 조회</a>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <span class="nav-submenu">분류별 조회</span>
+              <div class="dropdown-content">
+                <a href="/percent">분류별 점유율</a>
+                <a href="/category">분류별 지출 금액</a>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <span class="nav-submenu"><i class="fas fa-user"></i></span>
+              <div class="dropdown-content">
+                <span data-toggle="modal" data-target="#feedback">문의하기</span>
+                <a href="#">엑셀 다운로드</a>
+                <span data-toggle="modal" data-target="#withdrawl">회원탈퇴</span>
+                <span id="logout">로그아웃</span>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="day-title">
+        <span>예산 대비 지출 조회</span>
+      </div>
+      <div class="day-subtitle">
+        <span>예산 대비 당월의 지출 금액을 확인할 수 있습니다</span>
+      </div>
+      <div class="content-body">
+        <div id="chart">
+        </div>
+        <div class="description">
+          <div id="month-header" class="">
+            예산보다
+          </div>
+          <div id="mp" class="month">
+          </div>
+          <div id="month-footer" class="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="feedback" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">문의하기</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="feedback-content">문의내용</label>
+              <textarea class="form-control" id="feedback-content" rows="5" placeholder="내용을 입력해주세요!"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+            <button id="feedback-btn" type="button" class="btn btn-primary">문의하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="withdrawl" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">회원탈퇴</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="feedback-content">문의내용</label>
+              <input type="password" class="form-control" id="withdrawl-password" placeholder="비밀번호를 입력해주세요!"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+            <button id="withdrawl-btn" type="button" class="btn btn-primary">탈퇴하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="spinner"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="/javascripts/jquery.hoverIntent.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="/javascripts/jquery.counterup.js"></script>
+    <script src="/javascripts/jquery.counterup.min.js"></script>
+    <script src="/javascripts/compare_budget.js"></script>
+    <script src="/javascripts/base.js"></script>
+    <script src='/javascripts/fullcalendar/core/main.js'></script>
+    <script src='/javascripts/fullcalendar/daygrid/main.js'></script>
+  </body>
+</html>
