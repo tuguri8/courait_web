@@ -11,7 +11,7 @@ function compareBudget () {
           console.log(res);
           let mpText;
           let subText;
-          $('#mp').html(`<span id="price">${res.month_price}</span><span id="won"></span>`);
+          $('#mp').html(`<span id="price">${res.diff_price}</span><span id="won"></span>`);
           if (res.over === true) {
             mpText = '더 쓰셨네요!';
             subText = '다음에는 소비를 줄이셔야 해요!';

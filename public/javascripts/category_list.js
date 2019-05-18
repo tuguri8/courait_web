@@ -71,6 +71,10 @@ function category() {
           console.log(res);
           $('.day-title').append(`<span>${getCategory(res.category)} 지출 내역</span>`);
           $('.day-subtitle').append(`<span>${getCategory(res.category)} 카테고리의 지출 내역을 확인할 수 있습니다</span>`);
+          if(Object.keys(res.category_list).length < 3) {
+            $('.percent-card').css('justify-content', 'center');
+            $('.percent-card').css('padding-left', '0');
+          }
           for (let i = 0; i < Object.keys(res.category_list).length; i++) {
             let key = Object.keys(res.category_list)[i];
             $('.percent-card').append(`<div id="${key}" class="card swiper-slide" style="background-color: #fcfcfc">
