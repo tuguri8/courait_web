@@ -34,7 +34,7 @@ function percent() {
 function logout() {
   sessionStorage.clear();
   alert('로그아웃 되었습니다');
-  window.location.replace('/');
+  window.location.replace('/auth/login');
 }
 
 function feedback() {
@@ -107,22 +107,22 @@ $(document).ready(() => {
     },
   });
   $('.card').on('click', function (e) {
-    window.location.replace(`/list?category=${$(this).attr('id')}`);
+    window.location.replace(`/history/category?category=${$(this).attr('id')}`);
   });
   $('#logout').click(() => {
     logout();
   });
   $('#nav-month').click(() => {
-    window.location.replace(`/lobby?month=${moment().format('M')}`);
+    window.location.replace(`/history/month?month=${moment().format('M')}`);
   });
   $('#nav-day').click(() => {
-    window.location.replace(`/day?month=${moment().format('M')}&day=${moment().format('D')}`);
+    window.location.replace(`/history/day?month=${moment().format('M')}&day=${moment().format('D')}`);
   });
   $('#nav-input').click(() => {
-    window.location.replace('/input');
+    window.location.replace('/history/new');
   });
   $('#get-budget-btn').click(() => {
-    window.location.replace('/budget');
+    window.location.replace('/user/budget');
   });
   $('#feedback-btn').click(() => {
     feedback();

@@ -15,7 +15,7 @@
     <div class="wrap">
       <div class="header">
         <nav class="navbar">
-          <a id="logo" class="navbar-brand" href="/">
+          <a id="logo" class="navbar-brand" href="/auth/login">
             <span style="color: #1a323d;">CourAIt</span>
             <!-- <img src="/images/logo.png" width="50" height="30" alt=""> -->
           </a>
@@ -31,15 +31,15 @@
             <div class="navbar-item">
               <span id="get-budget-btn" class="nav-submenu">예산관리</span>
               <div class="dropdown-content">
-                <a href="/change_budget">예산 설정</a>
-                <a href="/compare_budget">예산 대비 지출 조회</a>
+                <a href="/user/budget/new">예산 설정</a>
+                <a href="/history/budget">예산 대비 지출 조회</a>
               </div>
             </div>
             <div class="navbar-item">
               <span class="nav-submenu">분류별 조회</span>
               <div class="dropdown-content">
-                <a href="/percent">분류별 점유율</a>
-                <a href="/category">분류별 지출 금액</a>
+                <a href="/history/percent">분류별 점유율</a>
+                <a href="/user/category">분류별 지출 금액</a>
               </div>
             </div>
             <div class="navbar-item">
@@ -151,7 +151,7 @@
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <label for="feedback-content">문의내용</label>
+              <label for="feedback-content">비밀번호</label>
               <input type="password" class="form-control" id="withdrawl-password" placeholder="비밀번호를 입력해주세요!"></textarea>
             </div>
           </div>
@@ -162,7 +162,7 @@
         </div>
       </div>
     </div>
-    
+
     <div id="spinner"></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

@@ -106,7 +106,7 @@ function category() {
       console.log('ajax call error: login page - loginReq');
       const jsonData = JSON.parse(e.responseText);
       alert(jsonData.message);
-      window.location.replace('/category');
+      window.location.replace('/user/category');
     },
   };
   sendTokenReq(info, token);
@@ -115,7 +115,7 @@ function category() {
 function logout() {
   sessionStorage.clear();
   alert('로그아웃 되었습니다');
-  window.location.replace('/');
+  window.location.replace('/auth/login');
 }
 
 function feedback() {
@@ -176,16 +176,16 @@ $(document).ready(() => {
     logout();
   });
   $('#nav-month').click(() => {
-    window.location.replace(`/lobby?month=${moment().format('M')}`);
+    window.location.replace(`/history/month?month=${moment().format('M')}`);
   });
   $('#nav-day').click(() => {
-    window.location.replace(`/day?month=${moment().format('M')}&day=${moment().format('D')}`);
+    window.location.replace(`/history/day?month=${moment().format('M')}&day=${moment().format('D')}`);
   });
   $('#nav-input').click(() => {
-    window.location.replace('/input');
+    window.location.replace('/history/new');
   });
   $('#get-budget-btn').click(() => {
-    window.location.replace('/budget');
+    window.location.replace('/user/budget');
   });
   $('#feedback-btn').click(() => {
     feedback();

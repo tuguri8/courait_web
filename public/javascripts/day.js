@@ -41,7 +41,7 @@ function getDay() {
 function logout() {
   sessionStorage.clear();
   alert('로그아웃 되었습니다');
-  window.location.replace('/');
+  window.location.replace('/auth/login');
 }
 
 function feedback() {
@@ -101,13 +101,13 @@ $(document).ready(() => {
   // getPrev();
   $('#month-header').html(`고객님의 ${getUrlVars().month}월 ${getUrlVars().day}일 지출 금액 입니다`);
   $('#prev').click(() => {
-    window.location.replace(`/day?month=${moment(getUrlVars().month, 'M').format('M')}&day=${moment(getUrlVars().day, 'D').subtract(1, 'days').format('D')}`);
+    window.location.replace(`/history/day?month=${moment(getUrlVars().month, 'M').format('M')}&day=${moment(getUrlVars().day, 'D').subtract(1, 'days').format('D')}`);
   });
   $('#next').click(() => {
     if (getUrlVars().day === moment().format('D')) {
       alert('마지막 페이지 입니다!');
     } else {
-      window.location.replace(`/day?month=${moment(getUrlVars().month, 'M').format('M')}&day=${moment(getUrlVars().day, 'D').add(1, 'days').format('D')}`);
+      window.location.replace(`/history/day?month=${moment(getUrlVars().month, 'M').format('M')}&day=${moment(getUrlVars().day, 'D').add(1, 'days').format('D')}`);
     }
   });
   $('.card-calendar').hide();
@@ -118,13 +118,13 @@ $(document).ready(() => {
     logout();
   });
   $('#nav-month').click(() => {
-    window.location.replace(`/lobby?month=${moment().format('M')}`);
+    window.location.replace(`/history/month?month=${moment().format('M')}`);
   });
   $('#nav-input').click(() => {
-    window.location.replace('/input');
+    window.location.replace('/history/new');
   });
   $('#get-budget-btn').click(() => {
-    window.location.replace('/budget');
+    window.location.replace('/user/budget');
   });
   $('#feedback-btn').click(() => {
     feedback();

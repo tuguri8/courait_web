@@ -170,7 +170,7 @@ function getPrev() {
       console.log('ajax call error: login page - getPrev');
       // let jsonData = JSON.parse(e.responseText);
       alert('로그인을 해주세요!');
-      window.location.replace('/');
+      window.location.replace('/auth/login');
     },
   };
   sendTokenReq(info, token);
@@ -179,7 +179,7 @@ function getPrev() {
 function logout() {
   sessionStorage.clear();
   alert('로그아웃 되었습니다');
-  window.location.replace('/');
+  window.location.replace('/auth/login');
 }
 
 function feedback() {
@@ -239,13 +239,13 @@ $(document).ready(() => {
   getPrev();
   $('#month-header').html(`고객님의 ${getUrlVars().month}월 지출 금액 입니다`);
   $('#prev').click(() => {
-    window.location.replace(`/lobby?month=${moment(getUrlVars().month, 'M').subtract(1, 'months').format('M')}`);
+    window.location.replace(`/history/month?month=${moment(getUrlVars().month, 'M').subtract(1, 'months').format('M')}`);
   });
   $('#next').click(() => {
     if (getUrlVars().month === moment().format('M')) {
       alert('마지막 페이지 입니다!');
     } else {
-      window.location.replace(`/lobby?month=${moment(getUrlVars().month, 'M').add(1, 'months').format('M')}`);
+      window.location.replace(`/history/month?month=${moment(getUrlVars().month, 'M').add(1, 'months').format('M')}`);
     }
   });
   $('.card-calendar').hide();
@@ -256,16 +256,16 @@ $(document).ready(() => {
     logout();
   });
   $('#nav-month').click(() => {
-    window.location.replace(`/lobby?month=${moment().format('M')}`);
+    window.location.replace(`/history/month?month=${moment().format('M')}`);
   });
   $('#nav-day').click(() => {
-    window.location.replace(`/day?month=${moment().format('M')}&day=${moment().format('D')}`);
+    window.location.replace(`/history/day?month=${moment().format('M')}&day=${moment().format('D')}`);
   });
   $('#nav-input').click(() => {
-    window.location.replace('/input');
+    window.location.replace('/history/new');
   });
   $('#get-budget-btn').click(() => {
-    window.location.replace('/budget');
+    window.location.replace('/user/budget');
   });
   $('#feedback-btn').click(() => {
     feedback();

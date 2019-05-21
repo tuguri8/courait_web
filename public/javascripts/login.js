@@ -16,7 +16,7 @@ function login() {
       console.log('loginReq success');
       sessionStorage.setItem('token', res.token);
       alert('성공적으로 로그인되었습니다.');
-      window.location.replace(`/lobby?month=${moment().format('M')}`);
+      window.location.replace(`/history/month?month=${moment().format('M')}`);
     },
     error(e) {
       spinner.stop();
@@ -45,7 +45,7 @@ function search_id() {
       console.log('searchIDReq success');
       console.log(res);
       alert(res.message);
-      window.location.replace('/');
+      window.location.replace('/auth/login');
     },
     error(e) {
       spinner.stop();
@@ -76,7 +76,7 @@ function search_pw() {
       console.log('searchPWReq success');
       console.log(res);
       alert(res.message);
-      window.location.replace('/');
+      window.location.replace('/auth/login');
     },
     error(e) {
       spinner.stop();
@@ -107,7 +107,7 @@ $(document).ready(() => {
   });
 
   $('#reg').click(() => {
-    window.location.replace('/reg');
+    window.location.replace('/auth/reg');
   });
 
   $('#id-btn').click(() => {

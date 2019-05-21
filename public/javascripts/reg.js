@@ -24,7 +24,7 @@ function reg() {
       console.log('loginReq success');
       console.log(res);
       alert('성공적으로 회원가입되었습니다.');
-      window.location.replace('/');
+      window.location.replace('/auth/login');
     },
     error(e) {
       spinner.stop();
