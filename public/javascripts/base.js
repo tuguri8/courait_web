@@ -1,7 +1,8 @@
-const URL = 'http://ec2-52-78-171-9.ap-northeast-2.compute.amazonaws.com:7001';
+// const URL = 'http://ec2-52-78-171-9.ap-northeast-2.compute.amazonaws.com:7001';
 // const URL = 'http://192.9.44.53:65003';
 // const URL = 'http://203.249.127.32:65003';
 // const URL = 'http://localhost:6001';
+const URL = 'http://localhost:65003';
 
 const opts = {
   lines: 10,

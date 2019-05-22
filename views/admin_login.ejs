@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>쿠레이트 - CourAIt</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://spin.js.org/spin.css">
+  </head>
+  <body>
+    <div class="wrap border-bottom">
+      <div class="header">
+        <nav class="navbar navbar-white bg-white">
+          <a id="logo" class="navbar-brand" href="/admin/login">
+            CourAIt
+            <!-- <img src="/images/logo.png" width="50" height="30" alt=""> -->
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="login-title">
+        <span>관리자 로그인</span>
+      </div>
+      <div class="login-box border">
+        <form action="">
+          <div class="form-group">
+            <label for="exampleInputEmail1">아이디(이메일)</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="아이디를 입력해주세요">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">비밀번호</label>
+            <input type="password" class="form-control" id="pw" placeholder="비밀번호를 입력해주세요">
+          </div>
+          <button id="login-btn" type="button" class="btn btn-info btn-lg btn-block">로그인</button>
+        </form>
+        <div class="search">
+          <!-- <span data-toggle="modal" data-target="#searchID">아이디 찾기</span>
+          <span data-toggle="modal" data-target="#searchPW">비밀번호 찾기</span> -->
+          <!-- <span id="reg">회원가입</span> -->
+        </div>
+      </div>
+    </div>
+
+    <div id="spinner"></div>
+
+
+    <div id="searchID" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">아이디 찾기</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">이름</label>
+              <input type="text" class="form-control" id="searchid-name" aria-describedby="emailHelp" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">전화번호</label>
+              <input type="text" class="form-control" id="searchid-phone" placeholder="Enter Phone">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+            <button id="id-btn" type="button" class="btn btn-primary">아이디 찾기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="searchPW" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">비밀번호 찾기</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">아이디</label>
+              <input type="text" class="form-control" id="searchpw-id" aria-describedby="emailHelp" placeholder="Enter ID">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">이름</label>
+              <input type="text" class="form-control" id="searchpw-name" aria-describedby="emailHelp" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">전화번호</label>
+              <input type="text" class="form-control" id="searchpw-phone" placeholder="Enter Phone">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+            <button id="pw-btn" type="button" class="btn btn-primary">비밀번호 찾기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+    <script src="/javascripts/admin_login.js"></script>
+    <script src="/javascripts/base.js"></script>
+  </body>
+</html>

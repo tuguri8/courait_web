@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>쿠레이트 - CourAIt</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel='stylesheet' href='/stylesheets/admin_lobby.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://spin.js.org/spin.css">
+    <link href='/stylesheets/fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='/stylesheets/fullcalendar/daygrid/main.css' rel='stylesheet' />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <nav class="navbar">
+          <a id="logo" class="navbar-brand" href="/admin/login">
+            <span style="color: white;">CourAIt</span>
+            <!-- <img src="/images/logo.png" width="50" height="30" alt=""> -->
+          </a>
+          <div class="nav-item">
+            <div class="navbar-item">
+              <span class="nav-submenu">지출조회</span>
+              <div class="dropdown-content">
+                <span id="nav-month">월별 조회</span>
+                <span id="nav-day">일별 조회</span>
+                <span id="nav-input">수동 지출 입력</span>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <span id="get-budget-btn" class="nav-submenu">예산관리</span>
+              <div class="dropdown-content">
+                <a href="/user/budget/new">예산 설정</a>
+                <a href="/history/budget">예산 대비 지출 조회</a>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <span class="nav-submenu">분류별 조회</span>
+              <div class="dropdown-content">
+                <a href="/history/percent">분류별 점유율</a>
+                <a href="/user/category">분류별 지출 금액</a>
+              </div>
+            </div>
+            <div class="navbar-item">
+              <span class="nav-submenu"><i class="fas fa-user"></i></span>
+              <div class="dropdown-content">
+                <span id="logout">로그아웃</span>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="day-content">
+      <div class="day-title">
+        <span>회원정보</span>
+      </div>
+      <br>
+    </div>
+
+
+    <div id="spinner"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="/javascripts/jquery.hoverIntent.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="/javascripts/jquery.counterup.js"></script>
+    <script src="/javascripts/jquery.counterup.min.js"></script>
+    <script src="/javascripts/admin_lobby.js"></script>
+    <script src="/javascripts/base.js"></script>
+    <script src='/javascripts/fullcalendar/core/main.js'></script>
+    <script src='/javascripts/fullcalendar/daygrid/main.js'></script>
+  </body>
+</html>

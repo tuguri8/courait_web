@@ -60,6 +60,16 @@ function getCategoryListPage(req, res) {
   });
 }
 
+function getAdminLoginPage(req, res) {
+  res.render('admin_login.ejs', {
+  });
+}
+
+function getAdminMainPage(req, res) {
+  res.render('admin_lobby.ejs', {
+  });
+}
+
 module.exports = {
   getMainPage,
   getLoginPage,
@@ -73,4 +83,6 @@ module.exports = {
   getPercentPage,
   getCategoryPage,
   getCategoryListPage,
+  getAdminLoginPage,
+  getAdminMainPage,
 };
