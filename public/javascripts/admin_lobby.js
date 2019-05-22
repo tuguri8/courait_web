@@ -19,10 +19,10 @@ function getUserInfo() {
       for (let i = 0; i < res.user_list.length; i++) {
         $('.day-content').append(`<div id="day" class="card">
                 <div class="card-body">
-                <div>${res.user_list[i].email}</div>
+                <div id="id">${res.user_list[i].email}</div>
                 <div>${res.user_list[i].name}</div>
                 <div>${res.user_list[i].phone}</div>
-                <button type="button" class="btn btn-warning">관리자 추가</button>
+                <button id="add_admin" type="button" class="btn btn-warning">관리자 추가</button>
                 <button type="button" class="btn btn-warning">사용자 계정 삭제</button>
               </div></div>`);
       }
@@ -45,9 +45,41 @@ function logout() {
   window.location.replace('/admin/login');
 }
 
+function addAdmin(email) {
+  spinner = new Spinner(opts).spin(target);
+  const info = {
+    url: '/admin/new',
+    method: 'POST',
+    body: {
+      email,
+    },
+    success(res) {
+      spinner.stop();
+      console.log('newAdminReq success');
+      alert(res.message);
+    },
+    error(e) {
+      spinner.stop();
+      console.log(e.responseText);
+      console.log('ajax call error: adminlobby page - newAdminReq');
+      const jsonData = JSON.parse(e.responseText);
+      alert(jsonData.message);
+    },
+  };
+  sendTokenReq(info, token);
+}
+
 $(document).ready(() => {
   getUserInfo();
   // getPrev();
+  $('body').on('click', '#add_admin', (e) => {
+    addAdmin($(e.target).siblings('div#id').text());
+  });
+
+  // $('#add_admin').click(() => {
+  //   alert('asdf');
+  //   // alert($(this).siblings('#id').val());
+  // });
   $('#logout').click(() => {
     logout();
   });
