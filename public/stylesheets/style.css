@@ -71,16 +71,18 @@ form {
   padding-left: 30px;
 }
 
-.navbar-item:hover {
-  color: #113476;
-}
-
 .navbar-item:hover .dropdown-content{
   display: block;
 }
 
+
+.navbar-item:hover {
+  color: #cbb889;
+  cursor: pointer;
+}
+
 a:hover {
-  color: #113476;
+  color: #cbb889;
 }
 
 .dropdown-content span:hover {

@@ -106,6 +106,10 @@ $(document).ready(() => {
     $('#myInput').trigger('focus');
   });
 
+  $('#admin').click(() => {
+    window.location.replace('/admin/login');
+  });
+
   $('#reg').click(() => {
     window.location.replace('/auth/reg');
   });

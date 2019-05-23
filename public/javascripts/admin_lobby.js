@@ -30,10 +30,9 @@ function getUserInfo() {
     error(e) {
       spinner.stop();
       console.log(e.responseText);
-      console.log('ajax call error: login page - loginReq');
-      const jsonData = JSON.parse(e.responseText);
-      alert(jsonData.message);
-      // window.location.replace('/');
+      console.log('ajax call error: lobby page - AdminGetUserInfoReq');
+      alert('로그인을 해주세요!');
+      window.location.replace('/admin/login');
     },
   };
   sendTokenReq(info, token);
