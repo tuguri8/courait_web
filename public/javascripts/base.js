@@ -1,5 +1,5 @@
-const URL = 'http://ec2-52-78-171-9.ap-northeast-2.compute.amazonaws.com:7001';
-// const URL = 'http://192.9.44.53:65003';
+// const URL = 'http://ec2-52-78-171-9.ap-northeast-2.compute.amazonaws.com:7001';
+const URL = 'http://192.9.44.53:65003';
 // const URL = 'http://203.249.127.32:65003';
 // const URL = 'http://localhost:6001';
 // const URL = 'http://localhost:65003';
@@ -125,6 +125,35 @@ function getCategory(category) {
       return '생활/건강';
     case 'culture':
       return '여행/문화';
+    default:
+      break;
+  }
+}
+
+function getFoodCategory(category) {
+  switch (category) {
+    case 'meat':
+      return '축산';
+    case 'fish':
+      return '수산';
+    case 'agriculture':
+      return '농산물';
+    case 'banchan':
+      return '반찬';
+    case 'kimchi':
+      return '김치';
+    case 'snack':
+      return '과자';
+    case 'beverage':
+      return '음료';
+    case 'icecream':
+      return '아이스크림';
+    case 'frozen':
+      return '냉동/간편조리식품';
+    case 'gagong':
+      return '가공식품';
+    case 'health':
+      return '건강식품';
     default:
       break;
   }

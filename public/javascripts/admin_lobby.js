@@ -73,7 +73,12 @@ $(document).ready(() => {
   getUserInfo();
   // getPrev();
   $('body').on('click', '#add_admin', (e) => {
-    addAdmin($(e.target).siblings('div#id').text());
+    const addAdminConfirm = confirm('관리자로 등록하시겠습니까?');
+    if (addAdminConfirm) {
+      addAdmin($(e.target).siblings('div#id').text());
+    } else {
+
+    }
   });
 
   // $('#add_admin').click(() => {
