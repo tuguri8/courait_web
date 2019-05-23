@@ -19,9 +19,9 @@ function input() {
       spinner.stop();
       console.log('inputReq success');
       if (res.category === 'food') {
-        alert(`${getCategory(res.category)} 카테고리의 ${res.item_name}이(가) 등록되었습니다.`);
-      } else {
         alert(`${getCategory(res.category)}, ${getFoodCategory(res.food_category)} 카테고리의 ${res.item_name}가 등록되었습니다.`);
+      } else {
+        alert(`${getCategory(res.category)} 카테고리의 ${res.item_name}이(가) 등록되었습니다.`);
       }
       $('#item-name').val('');
       $('#price').val('');
