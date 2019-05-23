@@ -22,8 +22,8 @@ function login() {
       spinner.stop();
       console.log(e.responseText);
       console.log('ajax call error: login page - loginReq');
-      const jsonData = JSON.parse(e.responseText);
-      alert(jsonData.message);
+      // const jsonData = JSON.parse(e.responseText);
+      alert('입력하신 정보가 잘못되었습니다!');
     },
   };
   sendReq(info);
