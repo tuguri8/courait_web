@@ -70,6 +70,21 @@ function getAdminMainPage(req, res) {
   });
 }
 
+function getAdminPurchaseListPage(req, res) {
+  res.render('admin_purchase_list.ejs', {
+  });
+}
+
+function getAdminFeedbackPage(req, res) {
+  res.render('admin_feedback.ejs', {
+  });
+}
+
+function getAdminCrawlerPage(req, res) {
+  res.render('admin_crawler.ejs', {
+  });
+}
+
 module.exports = {
   getMainPage,
   getLoginPage,
@@ -85,4 +100,7 @@ module.exports = {
   getCategoryListPage,
   getAdminLoginPage,
   getAdminMainPage,
+  getAdminPurchaseListPage,
+  getAdminFeedbackPage,
+  getAdminCrawlerPage,
 };

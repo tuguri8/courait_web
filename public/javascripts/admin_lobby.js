@@ -10,20 +10,17 @@ function getUserInfo() {
       spinner.stop();
       console.log(res);
       const eventJson = [];
-      $('.day-content').append(`<div id="day" class="card">
-              <div class="card-body">
-              <div>아이디</div>
-              <div>이름</div>
-              <div>전화번호</div>
-            </div></div>`);
       for (let i = 0; i < res.user_list.length; i++) {
         $('.day-content').append(`<div id="day" class="card">
                 <div class="card-body">
-                <div id="id">${res.user_list[i].email}</div>
-                <div>${res.user_list[i].name}</div>
-                <div>${res.user_list[i].phone}</div>
-                <button id="add_admin" type="button" class="btn btn-warning">관리자 추가</button>
-                <button type="button" class="btn btn-warning">사용자 계정 삭제</button>
+                  <div class="inner-body-left">
+                    <span id="id" style="padding-top: 1%;">${res.user_list[i].email}</span>
+                    <span id="name" style="padding-top: 1%;">${res.user_list[i].name}</span>
+                    <span id="phone" style="padding-top: 1%;">${res.user_list[i].phone}</span>
+                    <button id="add_admin" type="button" class="btn btn-warning btn-sm">관리자 추가</button>
+                    <button id="delete_user" type="button" class="btn btn-warning btn-sm">사용자 계정 삭제</button>
+                    <button id="purchase_list" type="button" class="btn btn-warning btn-sm">구매내역 보기</button>
+                  </div>
               </div></div>`);
       }
     },
@@ -31,8 +28,8 @@ function getUserInfo() {
       spinner.stop();
       console.log(e.responseText);
       console.log('ajax call error: lobby page - AdminGetUserInfoReq');
-      alert('로그인을 해주세요!');
-      window.location.replace('/admin/login');
+      const jsonData = JSON.parse(e.responseText);
+      alert(jsonData.message);
     },
   };
   sendTokenReq(info, token);
@@ -68,22 +65,48 @@ function addAdmin(email) {
   sendTokenReq(info, token);
 }
 
+function deleteUser(email) {
+  spinner = new Spinner(opts).spin(target);
+  const info = {
+    url: '/admin/user/info',
+    method: 'DELETE',
+    body: {
+      email,
+    },
+    success(res) {
+      spinner.stop();
+      console.log('deleteUserReq success');
+      alert(res.message);
+    },
+    error(e) {
+      spinner.stop();
+      console.log(e.responseText);
+      console.log('ajax call error: adminlobby page - deleteUserReq');
+      const jsonData = JSON.parse(e.responseText);
+      alert(jsonData.message);
+    },
+  };
+  sendTokenReq(info, token);
+}
+
 $(document).ready(() => {
   getUserInfo();
   // getPrev();
   $('body').on('click', '#add_admin', (e) => {
     const addAdminConfirm = confirm('관리자로 등록하시겠습니까?');
     if (addAdminConfirm) {
-      addAdmin($(e.target).siblings('div#id').text());
-    } else {
-
+      addAdmin($(e.target).siblings('span#id').text());
     }
   });
-
-  // $('#add_admin').click(() => {
-  //   alert('asdf');
-  //   // alert($(this).siblings('#id').val());
-  // });
+  $('body').on('click', '#delete_user', (e) => {
+    const addDeleteConfirm = confirm('사용자 계정을 삭제하시겠습니까?');
+    if (addDeleteConfirm) {
+      deleteUser($(e.target).siblings('span#id').text());
+    }
+  });
+  $('body').on('click', '#purchase_list', (e) => {
+    window.location.replace(`/admin/history?phone=${$(e.target).siblings('span#phone').text()}&name=${encodeURI($(e.target).siblings('span#name').text())}`);
+  });
   $('#logout').click(() => {
     logout();
   });

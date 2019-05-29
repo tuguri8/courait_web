@@ -89,6 +89,28 @@ function withdrawl() {
   sendTokenReq(info, token);
 }
 
+function excel() {
+  const month = $('#excel-month').val();
+  spinner = new Spinner(opts).spin(target);
+  const info = {
+    url: `/history/excel?year=2019&month=${month}`,
+    method: 'GET',
+    success(res) {
+      spinner.stop();
+      console.log(res);
+      window.open(`${res.url}`);
+      $('#excel').modal('toggle');
+    },
+    error(e) {
+      spinner.stop();
+      console.log(e.responseText);
+      console.log('ajax call error: lobby page - excelReq');
+      const jsonData = JSON.parse(e.responseText);
+    },
+  };
+  sendTokenReq(info, token);
+}
+
 $(document).ready(() => {
   percent();
   const mySwiper = new Swiper('.swiper-container', {
@@ -129,5 +151,8 @@ $(document).ready(() => {
   });
   $('#withdrawl-btn').click(() => {
     withdrawl();
+  });
+  $('#excel-btn').click(() => {
+    excel();
   });
 });
