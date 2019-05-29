@@ -85,6 +85,11 @@ function getAdminCrawlerPage(req, res) {
   });
 }
 
+function getAdminAlarmPage(req, res) {
+  res.render('admin_alarm.ejs', {
+  });
+}
+
 module.exports = {
   getMainPage,
   getLoginPage,
@@ -103,4 +108,5 @@ module.exports = {
   getAdminPurchaseListPage,
   getAdminFeedbackPage,
   getAdminCrawlerPage,
+  getAdminAlarmPage,
 };

@@ -85,4 +85,7 @@ $(document).ready(() => {
   $('#feedback-btn').click(() => {
     feedback();
   });
+  $('#logo').click(() => {
+    window.location.replace('/admin/user/info');
+  });
 });

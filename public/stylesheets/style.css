@@ -191,6 +191,10 @@ a:hover {
   border-color: #f1f6ef !important;
 }
 
+span#logo:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 959px) and (min-width: 600px) {
     .header-font-l, .header-font-r {
         font-size: 1rem;

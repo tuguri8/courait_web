@@ -150,4 +150,7 @@ $(document).ready(() => {
   $('#excel-btn').click(() => {
     excel();
   });
+  $('#logo').click(() => {
+    window.location.replace(`/history/month?month=${moment().format('M')}`);
+  });
 });

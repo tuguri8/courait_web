@@ -86,6 +86,10 @@ a:hover {
   cursor: pointer;
 }
 
+span#logo:hover {
+  cursor: pointer;
+}
+
 .content {
   padding-top: 3%;
   padding-bottom: 3%;

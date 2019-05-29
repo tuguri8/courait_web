@@ -41,4 +41,7 @@ $(document).ready(() => {
   $('#reg-btn').click(() => {
     reg();
   });
+  $('#logo').click(() => {
+    window.location.replace('/auth/login');
+  });
 });

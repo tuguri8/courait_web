@@ -8,5 +8,6 @@ router.get('/user/info', controller.getAdminMainPage);
 router.get('/history', controller.getAdminPurchaseListPage);
 router.get('/feedback', controller.getAdminFeedbackPage);
 router.get('/crawler', controller.getAdminCrawlerPage);
+router.get('/alarm', controller.getAdminAlarmPage);
 
 module.exports = router;

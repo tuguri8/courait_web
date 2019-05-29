@@ -12,6 +12,10 @@ form {
   width: 50vh;
 }
 
+span#logo:hover {
+  cursor: pointer;
+}
+
 .wrap {
   /* height: 100vh; */
   background: #81c6c0 !important;

@@ -174,4 +174,7 @@ $(document).ready(() => {
   $('body').on('click', '#start_crawler', () => {
     startCrawler();
   });
+  $('#logo').click(() => {
+    window.location.replace('/admin/user/info');
+  });
 });

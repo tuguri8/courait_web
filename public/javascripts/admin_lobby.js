@@ -20,6 +20,7 @@ function getUserInfo() {
                     <button id="add_admin" type="button" class="btn btn-warning btn-sm">관리자 추가</button>
                     <button id="delete_user" type="button" class="btn btn-warning btn-sm">사용자 계정 삭제</button>
                     <button id="purchase_list" type="button" class="btn btn-warning btn-sm">구매내역 보기</button>
+                    <button id="alarm" type="button" class="btn btn-warning btn-sm">구매알림 보기</button>
                   </div>
               </div></div>`);
       }
@@ -107,6 +108,9 @@ $(document).ready(() => {
   $('body').on('click', '#purchase_list', (e) => {
     window.location.replace(`/admin/history?phone=${$(e.target).siblings('span#phone').text()}&name=${encodeURI($(e.target).siblings('span#name').text())}`);
   });
+  $('body').on('click', '#alarm', (e) => {
+    window.location.replace(`/admin/alarm?phone=${$(e.target).siblings('span#phone').text()}&name=${encodeURI($(e.target).siblings('span#name').text())}`);
+  });
   $('#logout').click(() => {
     logout();
   });
@@ -127,5 +131,8 @@ $(document).ready(() => {
   });
   $('#withdrawl-btn').click(() => {
     withdrawl();
+  });
+  $('#logo').click(() => {
+    window.location.replace('/admin/user/info');
   });
 });

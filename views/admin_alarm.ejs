@@ -3,7 +3,7 @@
   <head>
     <title>쿠레이트 - CourAIt</title>
     <meta name="viewport" content="width=device-width" />
-    <link rel='stylesheet' href='/stylesheets/admin_purchase_list.css' />
+    <link rel='stylesheet' href='/stylesheets/admin_alarm.css' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="https://spin.js.org/spin.css">
@@ -35,37 +35,13 @@
 
     <div class="day-content">
       <div class="day-title">
-        <span>문의내역</span>
+        <!-- <span>구매내역</span> -->
       </div>
       <div class="day-subtitle">
-        문의내역을 확인할 수 있습니다.
+        회원의 구매 알림 날짜를 확인할 수 있습니다.
       </div>
     </div>
 
-
-    <div id="feedback" class="modal fade" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">답변하기</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <span id="feedback_email" style="display: none;"></span>
-              <label for="feedback-content">답변내용</label>
-              <textarea class="form-control" id="feedback-content" rows="5" placeholder="내용을 입력해주세요!"></textarea>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-            <button id="feedback-btn" type="button" class="btn btn-primary">답변하기</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div id="spinner"></div>
 
@@ -82,7 +58,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="/javascripts/jquery.counterup.js"></script>
     <script src="/javascripts/jquery.counterup.min.js"></script>
-    <script src="/javascripts/admin_feedback.js"></script>
+    <script src="/javascripts/admin_alarm.js"></script>
     <script src="/javascripts/base.js"></script>
     <script src='/javascripts/fullcalendar/core/main.js'></script>
     <script src='/javascripts/fullcalendar/daygrid/main.js'></script>

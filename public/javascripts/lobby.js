@@ -290,6 +290,9 @@ $(document).ready(() => {
   $('#get-budget-btn').click(() => {
     window.location.replace('/user/budget');
   });
+  $('#logo').click(() => {
+    window.location.replace(`/history/month?month=${moment().format('M')}`);
+  });
   $('#feedback-btn').click(() => {
     feedback();
   });

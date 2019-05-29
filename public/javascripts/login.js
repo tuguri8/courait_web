@@ -121,4 +121,7 @@ $(document).ready(() => {
   $('#pw-btn').click(() => {
     search_pw();
   });
+  $('#logo').click(() => {
+    window.location.replace('/auth/login');
+  });
 });

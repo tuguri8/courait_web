@@ -15,6 +15,10 @@ form {
   max-width: 100%;
 }
 
+span#logo:hover {
+  cursor: pointer;
+}
+
 .wrap {
   background: #1a323d !important;
   padding-left: 15%;

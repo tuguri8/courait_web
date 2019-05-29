@@ -47,4 +47,7 @@ $(document).ready(() => {
   $('#logout').click(() => {
     logout();
   });
+  $('#logo').click(() => {
+    window.location.replace('/admin/user/info');
+  });
 });
