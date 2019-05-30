@@ -39,7 +39,11 @@ function reg() {
 
 $(document).ready(() => {
   $('#reg-btn').click(() => {
-    reg();
+    if ($('#pw').val() === $('#pw2').val()) {
+      reg();
+    } else {
+      alert('비밀번호를 확인해주세요!');
+    }
   });
   $('#logo').click(() => {
     window.location.replace('/auth/login');
