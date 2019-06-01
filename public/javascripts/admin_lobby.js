@@ -18,8 +18,8 @@ function getUserInfo() {
                     <span id="name" style="padding-top: 1%;">${res.user_list[i].name}</span>
                     <span id="phone" style="padding-top: 1%;">${res.user_list[i].phone}</span>
                     <button id="add_admin" type="button" class="btn btn-warning btn-sm">관리자 추가</button>
-                    <button id="delete_user" type="button" class="btn btn-warning btn-sm">사용자 계정 삭제</button>
-                    <button id="purchase_list" type="button" class="btn btn-warning btn-sm">구매내역 보기</button>
+                    <button id="delete_user" type="button" class="btn btn-warning btn-sm">계정 삭제</button>
+                    <button id="purchase_list" type="button" class="btn btn-warning btn-sm">지출 내역 보기</button>
                     <button id="alarm" type="button" class="btn btn-warning btn-sm">구매알림 보기</button>
                   </div>
               </div></div>`);

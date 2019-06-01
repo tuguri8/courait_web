@@ -9,7 +9,7 @@ function getPurchaseList() {
     success(res) {
       spinner.stop();
       console.log(res);
-      $('.day-title').append(`<span>${decodeURI(getUrlVars().name)}님의 구매내역</span>`);
+      $('.day-title').append(`<span>${decodeURI(getUrlVars().name)}님의 지출내역</span>`);
       for (let i = 0; i < res.purchase_list.length; i++) {
         $('.day-content').append(`<div id="day" class="card">
               <div class="card-header">
