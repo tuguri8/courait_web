@@ -16,7 +16,7 @@ function login() {
       console.log('loginReq success');
       sessionStorage.setItem('token', res.token);
       alert('성공적으로 로그인되었습니다.');
-      window.location.replace(`/history/month?month=${moment().format('M')}`);
+      window.location.replace('/user/guide');
     },
     error(e) {
       spinner.stop();
@@ -108,6 +108,10 @@ $(document).ready(() => {
 
   $('#admin').click(() => {
     window.location.replace('/admin/login');
+  });
+
+  $('#app').click(() => {
+    window.open('https://courait.s3.ap-northeast-2.amazonaws.com/courait.apk', '_blank');
   });
 
   $('#reg').click(() => {

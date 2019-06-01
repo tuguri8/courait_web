@@ -9,7 +9,7 @@ function getDay() {
     success(res) {
       spinner.stop();
       console.log(res);
-      $('#mp').html(`<span id="price">${res.day_price}</span><span id="won"></span>`);
+      $('#mp').html(`<span id="price">${res.day_price.toLocaleString()}</span><span id="won"></span>`);
       for (let i = 0; i < Object.keys(res.day_list).length; i++) {
         $('.day-content').append(`<div id="day" class="card">
               <div class="card-header">${getCategory(res.day_list[i].category)}</div>
@@ -17,7 +17,7 @@ function getDay() {
               <div class="">
                 <span>${res.day_list[i].item_name}</span>
               </div>
-              <div class="">${res.day_list[i].price}원</div>
+              <div class="">${(res.day_list[i].price).toLocaleString()}원</div>
             </div></div>`);
       }
       $('#price').counterUp({
@@ -159,6 +159,6 @@ $(document).ready(() => {
     excel();
   });
   $('#logo').click(() => {
-    window.location.replace(`/history/month?month=${moment().format('M')}`);
+    window.location.replace('/user/guide');
   });
 });

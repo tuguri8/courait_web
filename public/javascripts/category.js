@@ -9,15 +9,15 @@ function percent() {
     success(res) {
       spinner.stop();
       console.log(res);
-      $('#fashion-price').append(`${res.fashion.price}원`);
-      $('#cosmetic-price').append(`${res.cosmetic.price}원`);
-      $('#digital-price').append(`${res.digital.price}원`);
-      $('#interior-price').append(`${res.interior.price}원`);
-      $('#kid-price').append(`${res.kid.price}원`);
-      $('#food-price').append(`${res.food.price}원`);
-      $('#sports-price').append(`${res.sports.price}원`);
-      $('#life-price').append(`${res.life.price}원`);
-      $('#culture-price').append(`${res.culture.price}원`);
+      $('#fashion-price').append(`${res.fashion.price.toLocaleString()}원`);
+      $('#cosmetic-price').append(`${res.cosmetic.price.toLocaleString()}원`);
+      $('#digital-price').append(`${res.digital.price.toLocaleString()}원`);
+      $('#interior-price').append(`${res.interior.price.toLocaleString()}원`);
+      $('#kid-price').append(`${res.kid.price.toLocaleString()}원`);
+      $('#food-price').append(`${res.food.price.toLocaleString()}원`);
+      $('#sports-price').append(`${res.sports.price.toLocaleString()}원`);
+      $('#life-price').append(`${res.life.price.toLocaleString()}원`);
+      $('#culture-price').append(`${res.culture.price.toLocaleString()}원`);
     },
     error(e) {
       spinner.stop();
@@ -156,6 +156,6 @@ $(document).ready(() => {
     excel();
   });
   $('#logo').click(() => {
-    window.location.replace(`/history/month?month=${moment().format('M')}`);
+    window.location.replace('/user/guide');
   });
 });

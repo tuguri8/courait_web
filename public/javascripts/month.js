@@ -9,7 +9,7 @@ function getMonth() {
     success(res) {
       spinner.stop();
       console.log(res);
-      $('#mp').html(`<span id="price">${res.month_price}</span><span id="won"></span>`);
+      $('#mp').html(`<span id="price">${res.month_price.toLocaleString()}</span><span id="won"></span>`);
       const eventJson = [];
       let defaultMonth = String(getUrlVars().month);
       if (defaultMonth.length === 1) {
@@ -22,12 +22,12 @@ function getMonth() {
             eventDate = `0${eventDate}`;
           }
           eventJson.push({
-            title: `${res.day_price[i]}원`, start: `2019-${defaultMonth}-${eventDate}`, color: '#1a323d', textColor: 'white',
+            title: `${res.day_price[i].toLocaleString()}원`, start: `2019-${defaultMonth}-${eventDate}`, color: '#1a323d', textColor: 'white',
           });
           $('.day-content').append(`<div id="day" class="card">
                   <div class="card-body">
                   <div>${getUrlVars().month}월${i}일</div>
-                  <div>${res.day_price[i]}원</div>
+                  <div>${res.day_price[i].toLocaleString()}원</div>
                 </div></div>`);
         }
       }
@@ -86,7 +86,7 @@ function getPrev() {
         diffText = '덜 쓰셨네요!';
         diffPrice = Math.abs(diffPrice);
       }
-      $('#month-footer').html(`<span>전월 대비 </span><span id="diffPrice">${diffPrice}</span><span>원 ${diffText}</span>`);
+      $('#month-footer').html(`<span>전월 대비 </span><span id="diffPrice">${diffPrice.toLocaleString()}</span><span>원 ${diffText}</span>`);
       $('#diffPrice').counterUp({
         delay: 10, // the delay time in ms
         time: 1000, // the speed time in ms
@@ -291,7 +291,7 @@ $(document).ready(() => {
     window.location.replace('/user/budget');
   });
   $('#logo').click(() => {
-    window.location.replace(`/history/month?month=${moment().format('M')}`);
+    window.location.replace('/user/guide');
   });
   $('#feedback-btn').click(() => {
     feedback();

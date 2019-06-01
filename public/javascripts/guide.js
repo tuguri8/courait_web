@@ -1,32 +1,6 @@
 // var moment = require('moment');
 const token = sessionStorage.getItem('token');
 
-function getBudget() {
-  spinner = new Spinner(opts).spin(target);
-  const info = {
-    url: '/user/budget',
-    method: 'GET',
-    success(res) {
-      spinner.stop();
-      console.log('getBudgetReq success');
-      $('.content-body').html(`<span id="price">${res.budget.toLocaleString()}</span><span id="won"></span>`);
-      $('#price').counterUp({
-        delay: 10, // the delay time in ms
-        time: 1000, // the speed time in ms
-      });
-      $('#won').append('원').delay(1000);
-    },
-    error(e) {
-      spinner.stop();
-      console.log(e.responseText);
-      console.log('ajax call error: budget page - getBudgetReq');
-      const jsonData = JSON.parse(e.responseText);
-      alert(jsonData.message);
-    },
-  };
-  sendTokenReq(info, token);
-}
-
 function logout() {
   sessionStorage.clear();
   alert('로그아웃 되었습니다');
@@ -102,14 +76,12 @@ function excel() {
       console.log(e.responseText);
       console.log('ajax call error: lobby page - excelReq');
       const jsonData = JSON.parse(e.responseText);
-      alert(jsonData.message);
     },
   };
   sendTokenReq(info, token);
 }
 
 $(document).ready(() => {
-  getBudget();
   $('#logout').click(() => {
     logout();
   });

@@ -83,7 +83,7 @@ function category() {
         for (let j = 0; j < res.category_list[key].length; j++) {
           $(`#${key}`).append(`<div class="card-list">
                 <span class="card-content">${res.category_list[key][j].item_name}</span>
-                <span class="card-content">${res.category_list[key][j].price}원</span>
+                <span class="card-content">${res.category_list[key][j].price.toLocaleString()}원</span>
                 </div>`);
         }
       }
@@ -220,6 +220,6 @@ $(document).ready(() => {
     excel();
   });
   $('#logo').click(() => {
-    window.location.replace(`/history/month?month=${moment().format('M')}`);
+    window.location.replace('/user/guide');
   });
 });

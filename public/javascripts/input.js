@@ -151,6 +151,88 @@ $(document).ready(() => {
     excel();
   });
   $('#logo').click(() => {
-    window.location.replace(`/history/month?month=${moment().format('M')}`);
+    window.location.replace('/user/guide');
+  });
+  $('#item-name').autocomplete({
+    minLength: 0,
+    source(request, response) {
+      let term = request.term;
+      let cache = {};
+      if ( term in cache ) {
+        response( cache[ term ] );
+        return;
+      }
+
+      if (term === '') {
+        const info = {
+          url: '/history/list',
+          method: 'GET',
+          success(res) {
+            console.log(res);
+            cache[ term ] = res;
+            response(res);
+          },
+          error(e) {
+            console.log(e.responseText);
+            console.log('ajax call error: lobby page - excelReq');
+            cache[ term ] = res;
+            response([]);
+          },
+        };
+        sendTokenReq(info, token);
+      } else {
+        const info = {
+          url: `/history/search?term=${term}`,
+          method: 'GET',
+          success(res) {
+            console.log(res);
+            cache[ term ] = res;
+            response(res);
+          },
+          error(e) {
+            console.log(e.responseText);
+            console.log('ajax call error: lobby page - excelReq');
+            cache[ term ] = res;
+            response([]);
+          },
+        };
+        sendTokenReq(info, token);
+      }
+    },
+    select(event, ui) {
+      if(ui.item.item_name) {
+        $('#item-name').val(ui.item.item_name);
+        // $('#input-button').click();
+      } else {
+        $('#item-name').val(ui.item.value);
+        // $('#input-button').click();
+      }
+      return false;
+    },
+    focus(event, ui) {
+      if (ui.item.item_name) {
+        $('#item-name').val(ui.item.item_name);
+      } else {
+        $('#item-name').val(ui.item.value);
+      }
+      return false;
+    },
+    appendTo: "#m",
+    autoFocus: false,
+    // position: { my: "right bottom", at: "right top" },
+  }).data('ui-autocomplete')._renderItem = function(ul, item) {
+    if (item.item_name) {
+      return $('<li></li>')
+        .data('ui-autocomplete-item', item)
+        .append(`<div style="display:flex; justify-content:space-between;"><span>${item.item_name}</span> <span>${item.purchase_date}</span></div>`)
+        .appendTo(ul);
+    }
+    return $('<li></li>')
+      .data('ui-autocomplete-item', item)
+      .append(`<div>${item.value}</div>`)
+      .appendTo(ul);
+  };
+  $('#item-name').focus(function () {
+    $(this).autocomplete('search', $(this).val());
   });
 });

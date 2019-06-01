@@ -11,14 +11,14 @@ function compareBudget() {
       console.log(res);
       let mpText;
       let subText;
-      $('#mp').html(`<span id="price">${res.diff_price}</span><span id="won"></span>`);
+      $('#mp').html(`<span id="price">${res.diff_price.toLocaleString()}</span><span id="won"></span>`);
       if (res.over === true) {
         mpText = '더 쓰셨네요!';
         subText = '다음에는 소비를 줄이셔야 해요!';
         $('#price').css('color', '#d1072d');
       } else {
         mpText = '덜 쓰셨네요!';
-        subText = `하루에 ${res.rest_price}원 씩 쓰셔야 해요!`;
+        subText = `하루에 ${(res.rest_price).toLocaleString()}원 씩 쓰셔야 해요!`;
         $('#price').css('color', '#105386');
       }
       Highcharts.chart('chart', {
@@ -220,6 +220,6 @@ $(document).ready(() => {
     excel();
   });
   $('#logo').click(() => {
-    window.location.replace(`/history/month?month=${moment().format('M')}`);
+    window.location.replace('/user/guide');
   });
 });

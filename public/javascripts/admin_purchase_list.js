@@ -20,7 +20,7 @@ function getPurchaseList() {
               <div class="">
                 <span>${res.purchase_list[i].item_name}</span>
               </div>
-              <div class="">${res.purchase_list[i].price}원</div>
+              <div class="">${res.purchase_list[i].price.toLocaleString()}원</div>
             </div></div>`);
       }
     },

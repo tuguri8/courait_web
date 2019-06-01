@@ -120,4 +120,7 @@ $(document).ready(() => {
   $('#logo').click(() => {
     window.location.replace('/admin/login');
   });
+  $('#user-page').click(() => {
+    window.location.replace('/');
+  });
 });

@@ -54,8 +54,8 @@ function getCrawlerStatus() {
             <span>${status}</span>
           </div>
           <div class="card-body">
-            <span>크롤링 요일 :&nbsp;</span>
-            <span>${String(crawlingDay)}</span>
+            <span>크롤링 요일 : ${String(crawlingDay)}</span>
+            <span>5:30 작동중</span>
           </div>
           <div class="card-footer">
             <button id="set_crawling_day" type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#crawling_day" style="margin-right:2%;">크롤링 요일 설정</button>

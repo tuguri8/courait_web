@@ -48,4 +48,10 @@ $(document).ready(() => {
   $('#logo').click(() => {
     window.location.replace('/auth/login');
   });
+  $('#app').click(() => {
+    window.open('https://courait.s3.ap-northeast-2.amazonaws.com/courait.apk', '_blank');
+  });
+  $('#admin').click(() => {
+    window.location.replace('/admin/login');
+  });
 });
