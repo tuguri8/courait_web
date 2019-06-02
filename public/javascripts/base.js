@@ -1,8 +1,6 @@
-// const URL = 'http://ec2-52-78-171-9.ap-northeast-2.compute.amazonaws.com:7001';
 // const URL = 'http://192.9.44.53:65003';
-const URL = 'http://203.249.127.32:65003';
-// const URL = 'http://localhost:6001';
-// const URL = 'http://localhost:65003';
+// const URL = `http://203.249.127.32:65003`;
+const URL = `http://${window.location.hostname}:65003`;
 
 const opts = {
   lines: 10,
@@ -29,26 +27,6 @@ const opts = {
 };
 const target = document.getElementById('spinner');
 let spinner;
-
-//
-// function sendReq(info) {
-//     // console.log("info.error: "+info.error)
-//     if(!info.error){
-//         info.error = function(e){
-//             console.log('ajax call error');
-//             console.log(e);
-//             console.log(e.responseText);
-//         }
-//     }
-//
-//     $.ajax(URL + info.url, {
-//         crossDomain:true,
-//         method: info.method,
-//         data: info.body,
-//         success: info.success,
-//         error: info.error
-//     });
-// }
 
 function getUrlVars() {
   const vars = []; let
